@@ -4,6 +4,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.contrib import messages
 
 # Exception
 from django.db.utils import IntegrityError
@@ -31,6 +32,8 @@ def update_profile(request):
             profile.picture = data['picture']
             profile.save()
 
+
+            messages.success(request, 'Profile updated correctly')
             return redirect('update_profile')
     else:
         form = ProfileForm()

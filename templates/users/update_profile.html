@@ -20,6 +20,10 @@
                   <p class="alert alert-danger">{{ field.label }}: {{ field.errors|striptags }}</p>
                 {% endif %}
                 {% endfor %}
+
+                {% for message in messages %}
+                    <p class="alert alert-success">{{ message }}</p>
+                {% endfor %}
                 
                 <div class='media'>
                     {% if profile.picture %}
